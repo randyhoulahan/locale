@@ -1,0 +1,54 @@
+{
+  "name": "@houlagins/locale",
+  "version": "1.0.0",
+  "description": "Locale resolving service ",
+  "author": "Randy Houlahan",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "DEBUG=true dist-builder",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "link": "lerna link",
+    "release": "yarn publish --access=public --tag latest",
+    "test:e2e:headless": "vue-cli-service test:e2e --headless"
+  },
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "browser": {
+    "./browser": "dist/browser/index.min.js",
+    "./": "dist/browser/index.min.js"
+  },
+  "unpkg": "dist/browser/index.min.js",
+  "files": [
+    "dist/*",
+    "src/*"
+  ],
+
+  "exports": {
+    ".": [
+      {
+        "import": "./dist/esm/index.js",
+        "require": "./dist/legacy/cjs/index.common.cjs",
+        "default": "./dist/esm/index.js"
+      },
+      "./dist/legacy/umd/index.umd.min.js"
+    ]
+  },
+  "homepage": "https://github.com/randyhoulahan/locale/tree/master#readme",
+  "jsnext:main": "dist/esm/index.js",
+  "license": "MIT",
+  "readme": "https://github.com/randyhoulahan/locale/tree/master#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randyhoulahan/locale.git",
+    "directory": "packages/locale"
+  },
+  "source": "src/index.js",
+  "src": "src/index.js",
+  "umd": "dist/legacy/umd/index.umd.min.js",
+  "web": "dist/browser/index.min.js",
+  "devDependencies": {
+    "@houlagins/dist-builder": "~1.0.0",
+    "@vue/cli-plugin-e2e-cypress": "~4.5.0"
+  }
+}
